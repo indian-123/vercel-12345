@@ -1,0 +1,83 @@
+{% load static %}
+<html>
+<head>
+
+
+    <title>LOGIN</title>
+    <link rel="icon" type="image/x-icon"  href="https://img.icons8.com/fluency/48/000000/database.png">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    <style>
+        .centers{
+            margin-right: 30%;
+            margin-left: 30%;
+        }
+        body{
+            background: linear-gradient(to right,#ee90cf,#004e92);
+            /* background-image: url({% static 'img/bac.jpg' %}); */
+        }
+    </style>
+</head>
+<body oncontextmenu="return false">
+{% block content %}
+     {% if messages %}
+        {% for message in messages %}
+
+            <div class="alert alert-{{message.tags}}">
+                <h3 class="text-center">{{message}}</h3>
+            </div>
+        {% endfor %}
+    {% endif  %}
+    <div class="centers">
+        <form action="logcon" method="POST" autocomplete="off" enctype="multipart/form-data">
+        {% csrf_token %}
+        <tt><h1 class="page-header text-primary text-center">LOG IN</h1></tt>
+        <div class="form-group">
+            <tt><label>Email:</label></tt>
+            <input type="email" class="form-control" name="mail" required>
+        </div>
+        <div class="form-group">
+            <tt><label>Password:</label></tt>
+            <input type="password" class="form-control" name="passwords" required  >
+        </div>
+        <div class="pull-right">
+            <input type="submit" value="login" class="btn btn-primary btn-lg">
+            <input type="reset" value="clear" class="btn btn-danger btn-lg hi">
+
+        </div>
+        <br><br><br><br>
+        <center><h3>OR</h3></center><br><br>
+        <center><a class="btn btn-success btn-lg" href="{% url 'index' %}">REGISTER</a></center>
+        </form>
+    </div>
+
+    <br>
+<br>
+     <script>
+        $("document").ready(function(){
+          $(".alert").hide(4000);
+          });
+
+     </script>
+    <script>
+document.onkeydown = function(e) {
+  if(event.keyCode == 123) {
+     return false;
+  }
+  if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+     return false;
+  }
+  if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+     return false;
+  }
+  if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+     return false;
+  }
+  if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+     return false;
+  }
+}
+</script>
+{% endblock %}
+</body>
+</html>

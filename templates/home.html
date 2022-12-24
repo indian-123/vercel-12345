@@ -1,0 +1,122 @@
+{% load static %}
+<html>
+<head>
+    
+    <title>YOURS DETAIL</title>
+    <link rel="icon" type="image/x-icon"  href="https://img.icons8.com/fluency/48/000000/database.png">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel=”stylesheet” href=”https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css”>
+
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <style>
+        body{
+            background: linear-gradient(to bottom,#33ccff 0%,#ff99cc 100%);
+        }
+        table,th,td{
+            border:1px solid black;
+            border-collapse:collapse;
+            padding:10px;
+            
+        }
+       
+        th{
+            text-align:right;
+            color:purple;
+        }
+        td{
+            color:green;
+        }
+        .center{
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            padding-bottom: 2px;
+        } 
+        .img-rounded{
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+      }
+      .image{
+        padding-bottom: 20px;
+      }
+      h1{
+        text-transform: uppercase;
+      }
+    </style>
+
+</head>
+<body oncontextmenu="return false">
+<!-- <center><tt><h1>HI,{{data.Name}}</h1></tt></center>
+<center><tt><h1>YOUR PASSWORD IS:&nbsp;{{data.Age}}</h1></tt></center>
+<center><tt><h1>YOUR ADDRESS IS:&nbsp;{{data.Address}}</h1></tt></center>
+<center><tt><h1>YOUR CONTACT IS:&nbsp;{{data.Contact}}</h1></tt></center>
+<center><tt><h1>YOUR EMAIL IS:&nbsp;{{data.Mail}}</h1></tt></center> -->
+<center><h1>HI,{{pics.Name}}</h1></center>
+    
+<div class="center">
+<div class="image rounded">
+<center><img src="{{pics.image.url}}" class="img-rounded" alt="Responsive image"></center>
+</div>
+      
+<table >
+    
+    <tr>
+        <th colspan="2">
+            <center>VIEW DETAILS</center><hr>
+        </th>
+    </tr>
+    <tr>
+        <th>Name</th>
+        <td>{{pics.Name}}</td>
+    </tr>
+    <tr>
+        <th>password</th>
+        <td>{{pics.Password}}</td>
+    </tr>
+    <tr>
+        <th>address</th>
+        <td>{{pics.Address}}</td>
+    </tr>
+    <tr>
+        <th>contact</th>
+        <td>{{pics.Contact}}</td>
+    </tr>
+    <tr>
+        <th>mail</th>
+        <td>{{pics.Mail}}</td>
+    </tr>
+</table>
+</div>
+
+
+<!--   <label>HELLO BOSS</label>-->
+<!--    <form action="a">-->
+<!--        {% csrf_token %}-->
+<!--        <input type="submit" value="Go to Database">-->
+<!--    </form>-->
+
+<script>
+document.onkeydown = function(e) {
+  if(event.keyCode == 123) {
+     return false;
+  }
+  if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+     return false;
+  }
+  if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+     return false;
+  }
+  if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+     return false;
+  }
+  if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+     return false;
+  }
+}
+</script>
+</body>
+</html>
